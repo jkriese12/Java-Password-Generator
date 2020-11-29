@@ -138,9 +138,6 @@ function generatePassword() {
   return(pwResponse);
 }
 
-
-
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -148,6 +145,7 @@ function writePassword() {
   passwordText.value = password;
 }
 
+// Function to copy password to users clipboard for easy copy and paste
 function passwordCopy() {
   var copyText = document.getElementById("password");
   copyText.select();
