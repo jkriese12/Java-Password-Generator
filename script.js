@@ -1,5 +1,6 @@
 // Variable assignment, all different variable combinbation for user choice
 var generateBtn = document.querySelector("#generate");
+var copyClick = document.querySelector("#buttonCopy");
 var abcCaps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var abcLower = "abcdefghijklmnopqrstuvwxyz";
 var number = "1234567890";
@@ -26,7 +27,7 @@ function generatePassword() {
    
   var upperCon = confirm("Do you want to include uppercase letters? Yes (OK) or No (Cancel)");
  
-  var lowerCon = confirm("Do you want to unclude lowercase letters? Yes (OK) or No (Cancel)");
+  var lowerCon = confirm("Do you want to include lowercase letters? Yes (OK) or No (Cancel)");
  
   var numbersCon = confirm("Do you want to include numbers? Yes (OK) or No (Cancel)");
 
@@ -37,7 +38,7 @@ function generatePassword() {
     
     var upperCon = confirm("Do you want to include uppercase letters? Yes (OK) or No (Cancel)");
  
-    var lowerCon = confirm("Do you want to unclude lowercase letters? Yes (OK) or No (Cancel)");
+    var lowerCon = confirm("Do you want to include lowercase letters? Yes (OK) or No (Cancel)");
  
     var numbersCon = confirm("Do you want to include numbers? Yes (OK) or No (Cancel)");
 
@@ -144,10 +145,17 @@ function generatePassword() {
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
+}
 
+function passwordCopy() {
+  var copyText = document.getElementById("password");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  alert("Copied to clipboard");
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+copyClick.addEventListener("click", passwordCopy);
